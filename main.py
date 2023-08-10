@@ -6,13 +6,14 @@ import slabs
 import questionAir
 from datetime import datetime
 from os.path import exists
+from colorama import Fore , Style
 
 
 
 def home():
     print("====================================================")
     
-    print("Hello there, Welcome to BlackTek")
+    print(Fore.RED+Style.BRIGHT+"Hello there, Welcome to BlackTek"+Fore.RESET)
     print("we offer :")
     print("1. Get Educated with our AI")
     print("2. Tax Calculator")
