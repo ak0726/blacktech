@@ -1,3 +1,4 @@
+from prettytable import PrettyTable
 class Expense:
     def __init__(self, type, name, date, amount, id):
         self.type = type
@@ -37,14 +38,17 @@ class ExpenseManager:
 
     def show_expenses(self):
         total_expense = self.calculate_total_expenses()
+        t = PrettyTable(['Type', 'Name', 'Date','Amount','ID'])
         print("Expenses:")
         for exp in self.expenses:
-            print("Type:", exp.type)
-            print("Name:", exp.name)
-            print("Date:", exp.date)
-            print("Amount: $", exp.amount)
-            print("ID:", exp.id, "\n")
-        print("Total Expense: $", total_expense)
+            t.add_row([exp.type,exp.name,exp.date,exp.amount,exp.id])
+            # print("Type:", exp.type)
+            # print("Name:", exp.name)
+            # print("Date:", exp.date)
+            # print("Amount: Rs.", exp.amount)
+            # print("ID:", exp.id, "\n")
+        print(t)
+        print("Total Expense: Rs.", total_expense)
 
     def delete_expense(self, id_to_delete):
         self.expenses = [exp for exp in self.expenses if exp.id != id_to_delete]
@@ -88,6 +92,6 @@ def temp():
         print("Type:", exp.type)
         print("Name:", exp.name)
         print("Date:", exp.date)
-        print("Amount: $", exp.amount)
+        print("Amount: Rs.", exp.amount)
         print("ID:", exp.id, "\n")
 
