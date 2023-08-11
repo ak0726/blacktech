@@ -21,7 +21,7 @@ def home():
     print("3. Retirement Planning")
     print("4. Expenditure Tracker")
     print("5. Debt Management")
-    print("-1.Exit")
+    print("6. Exit")
     print("====================================================")
 
     sel = int(input("PLease enter your selection > "))
