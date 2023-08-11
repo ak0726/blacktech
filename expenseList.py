@@ -66,7 +66,7 @@ def main():
     expense_manager.load_expenses_from_file("expenses.txt")
 
     while True:
-        print("1. Add Expense")
+        print("1. Add Expense 😋")
         print("2. Show Expenses")
         print("3. Delete Expense")
         print("4. Exit")
