@@ -1,8 +1,22 @@
 import json
 import random
+import os
 from colorama import Fore , Style
 
 def askQuestion():
+    os.system("clear")
+    print(Fore.BLUE + Style.BRIGHT+
+    '''
+ ██████╗ ██╗   ██╗███████╗███████╗████████╗██╗ ██████╗ ███╗   ██╗       █████╗ ██╗██████╗ 
+██╔═══██╗██║   ██║██╔════╝██╔════╝╚══██╔══╝██║██╔═══██╗████╗  ██║      ██╔══██╗██║██╔══██╗
+██║   ██║██║   ██║█████╗  ███████╗   ██║   ██║██║   ██║██╔██╗ ██║█████╗███████║██║██████╔╝
+██║▄▄ ██║██║   ██║██╔══╝  ╚════██║   ██║   ██║██║   ██║██║╚██╗██║╚════╝██╔══██║██║██╔══██╗
+╚██████╔╝╚██████╔╝███████╗███████║   ██║   ██║╚██████╔╝██║ ╚████║      ██║  ██║██║██║  ██║
+ ╚══▀▀═╝  ╚═════╝ ╚══════╝╚══════╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝      ╚═╝  ╚═╝╚═╝╚═╝  ╚═╝
+                                                                                          
+                                        
+'''
+)
     # Load the questions from the JSON file
     with open('finance_questions.json', 'r') as json_file:
         questions = json.load(json_file)
@@ -37,4 +51,5 @@ def askQuestion():
     print("Correct answers:")
     for i, question_data in enumerate(selected_questions, start=1):
         print(Fore.LIGHTRED_EX + Style.BRIGHT +f"Question {i}: {question_data['question']}")
-        print(Fore.GREEN + Style.BRIGHT +f"Correct answer: {question_data['answer']}\n")
+        print(Fore.GREEN + Style.BRIGHT +f"Correct answer: {question_data['answer']}\n"+Fore.RESET)
+    k = input("PRESS ENTER")
