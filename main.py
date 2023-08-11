@@ -3,6 +3,7 @@ import json
 import os
 import random
 import slabs
+import expenseList
 import questionAir
 from datetime import datetime
 from os.path import exists
@@ -27,6 +28,8 @@ def home():
         slabs.calTax()
     elif sel == 1:
         questionAir.askQuestion()
+    elif sel == 4:
+        expenseList.temp()
     else:
         print("feature not yet implmented")
     return sel;

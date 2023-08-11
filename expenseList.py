@@ -57,7 +57,7 @@ class ExpenseManager:
         total = sum(exp.amount for exp in self.expenses)
         return total
 
-def main():
+def temp():
     expense_manager = ExpenseManager()
     expense_manager.load_expenses_from_file("expenses.txt")
 
@@ -91,5 +91,3 @@ def main():
         print("Amount: $", exp.amount)
         print("ID:", exp.id, "\n")
 
-if __name__ == "__main__":
-    main()
