@@ -1,4 +1,6 @@
 from prettytable import PrettyTable
+import os
+from colorama import Fore,Style
 class Expense:
     def __init__(self, type, name, date, amount, id):
         self.type = type
@@ -48,7 +50,7 @@ class ExpenseManager:
             # print("Amount: Rs.", exp.amount)
             # print("ID:", exp.id, "\n")
         print(t)
-        print("Total Expense: Rs.", total_expense)
+        print(Fore.RED + Style.BRIGHT+"Total Expense: Rs.", total_expense)
 
     def delete_expense(self, id_to_delete):
         self.expenses = [exp for exp in self.expenses if exp.id != id_to_delete]
@@ -62,14 +64,27 @@ class ExpenseManager:
         return total
 
 def temp():
+    os.system("clear")
+    print(Fore.BLUE + Style.BRIGHT+
+    '''
+███████╗██╗  ██╗██████╗ ███████╗███╗   ██╗███████╗███████╗      ████████╗██████╗ ██╗  ██╗
+██╔════╝╚██╗██╔╝██╔══██╗██╔════╝████╗  ██║██╔════╝██╔════╝      ╚══██╔══╝██╔══██╗██║ ██╔╝
+█████╗   ╚███╔╝ ██████╔╝█████╗  ██╔██╗ ██║███████╗█████╗  █████╗   ██║   ██████╔╝█████╔╝ 
+██╔══╝   ██╔██╗ ██╔═══╝ ██╔══╝  ██║╚██╗██║╚════██║██╔══╝  ╚════╝   ██║   ██╔══██╗██╔═██╗ 
+███████╗██╔╝ ██╗██║     ███████╗██║ ╚████║███████║███████╗         ██║   ██║  ██║██║  ██╗
+╚══════╝╚═╝  ╚═╝╚═╝     ╚══════╝╚═╝  ╚═══╝╚══════╝╚══════╝         ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝
+
+
+'''
+)
     expense_manager = ExpenseManager()
     expense_manager.load_expenses_from_file("expenses.txt")
 
     while True:
-        print("1. Add Expense 😋")
-        print("2. Show Expenses")
-        print("3. Delete Expense")
-        print("4. Exit")
+        print(Fore.YELLOW + Style.BRIGHT+"1. Add Expense 😋")
+        print(Fore.YELLOW + Style.BRIGHT+"2. Show Expenses")
+        print(Fore.YELLOW + Style.BRIGHT+"3. Delete Expense")
+        print(Fore.YELLOW + Style.BRIGHT+"4. Exit")
         choice = int(input("Enter your choice: "))
         total_expense = expense_manager.calculate_total_expenses()
 
@@ -86,12 +101,19 @@ def temp():
         else:
             print("Invalid choice. Please try again.")
 
-    print("Expenses after exiting the program:")
+    print(Fore.RED + Style.BRIGHT+"Expenses after exiting the program:")
     expenses = expense_manager.get_expenses()
     for exp in expenses:
-        print("Type:", exp.type)
-        print("Name:", exp.name)
-        print("Date:", exp.date)
-        print("Amount: Rs.", exp.amount)
-        print("ID:", exp.id, "\n")
+        t = PrettyTable(['Type', 'Name', 'Date','Amount','ID'])
+        print("Expenses:")
+        for exp in expenses:
+            t.add_row([exp.type,exp.name,exp.date,exp.amount,exp.id])
+            # print("Type:", exp.type)
+            # print("Name:", exp.name)
+            # print("Date:", exp.date)
+            # print("Amount: Rs.", exp.amount)
+            # print("ID:", exp.id, "\n")
+        print(t)
+    k = input("PRESS ENTER")
+
 

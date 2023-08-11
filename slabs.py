@@ -1,5 +1,19 @@
 import math
+from colorama import Fore , Style
+
 def calTax():  
+    print(Fore.BLUE + Style.BRIGHT+
+    '''
+████████╗██████╗  █████╗  ██████╗██╗  ██╗      ████████╗ █████╗ ██╗  ██╗
+╚══██╔══╝██╔══██╗██╔══██╗██╔════╝██║ ██╔╝      ╚══██╔══╝██╔══██╗╚██╗██╔╝
+   ██║   ██████╔╝███████║██║     █████╔╝ █████╗   ██║   ███████║ ╚███╔╝ 
+   ██║   ██╔══██╗██╔══██║██║     ██╔═██╗ ╚════╝   ██║   ██╔══██║ ██╔██╗ 
+   ██║   ██║  ██║██║  ██║╚██████╗██║  ██╗         ██║   ██║  ██║██╔╝ ██╗
+   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝         ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝
+                                                                        
+
+'''
+)
     age = int(input("Enter your age: "))
     tax = 0
     income = 0
@@ -30,7 +44,7 @@ def calTax():
                 income = salary - tax
     else:
         if age < 18:
-            print("You are not eligible to pay tax")
+            print(Fore.RED + Style.BRIGHT+"You are not eligible to pay tax")
         else:
             if salary <= 250000:
                 tax = 0
@@ -55,7 +69,8 @@ def calTax():
                 tax -= 0.04 * tax
                 income = salary - tax
 
-    print("Total tax paid by you must be around:", tax)
-    print("Total income left:", income)
+    print(Fore.GREEN + Style.BRIGHT+"Total tax paid by you must be around:", tax)
+    print(Fore.GREEN + Style.BRIGHT+"Total income left:", income)
     if tax!=0:
-        print("You can save tax by investing the taxable amount in PF, PPF, Life insurance premium, tax-saving mutual funds, etc.")
+        print(Fore.GREEN + Style.BRIGHT+"You can save tax by investing the taxable amount in PF, PPF, Life insurance premium, tax-saving mutual funds, etc.")
+    k = input("PRESS ENTER")
