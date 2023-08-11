@@ -5,6 +5,7 @@ import random
 import slabs
 import expenseList
 import questionAir
+import retirement
 from datetime import datetime
 from os.path import exists
 from colorama import Fore , Style
@@ -32,8 +33,8 @@ def home():
     print(Fore.BLUE+Style.BRIGHT+"2. Tax Calculator")
     print(Fore.BLUE+Style.BRIGHT+"3. Retirement Planning")
     print(Fore.BLUE+Style.BRIGHT+"4. Expenditure Tracker")
-    print(Fore.BLUE+Style.BRIGHT+"5. Debt Management")
-    print(Fore.RED+Style.BRIGHT+"6. Exit"+Fore.RESET)
+    #print(Fore.BLUE+Style.BRIGHT+"5. Debt Management")
+    print(Fore.RED+Style.BRIGHT+"5. Exit"+Fore.RESET)
     print("====================================================")
 
     sel = int(input("PLease enter your selection > "))
@@ -43,7 +44,9 @@ def home():
         questionAir.askQuestion()
     elif sel == 4:
         expenseList.temp()
-    elif sel == 6:
+    elif sel == 3:
+        retirement.temp2()
+    elif sel == 5:
         return -1
     else:
         print("feature not yet implmented")
